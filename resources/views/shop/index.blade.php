@@ -5,11 +5,20 @@
 @endsection
 
 @section('content')
-	@if(Session::has('success'))
+	@if(Session::has('successOrder'))
 	<div class="row">
 		<div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
 			<div id="charge-message" class="alert alert-success">
-				{{ Session::get('success') }}
+				{{ Session::get('successOrder') }}
+			</div>
+		</div>
+	</div>
+	@endif
+	@if(Session::has('successAddToCart'))
+	<div class="row">
+		<div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+			<div id="charge-message" class="alert alert-success">
+				{{ Session::get('successAddToCart') }}
 			</div>
 		</div>
 	</div>

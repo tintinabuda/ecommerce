@@ -27,7 +27,7 @@ class ProductController extends Controller
     	$cart->add($product, $product->id);
 
     	$request->session()->put('cart', $cart);
-    	return redirect()->route('product.index');
+    	return redirect()->route('product.index')->with('successAddToCart', 'Product successfuly added to cart!');
     }
 
     public function getReduceByOne($id)
@@ -95,6 +95,6 @@ class ProductController extends Controller
         Auth::user()->orders()->save($order);
 
         Session::forget('cart');
-        return redirect()->route('product.index')->with('success', 'Order successful!');
+        return redirect()->route('product.index')->with('successOrder', 'Order successful!');
     }
 }
